@@ -5,6 +5,8 @@
 
 define j = Character("John Bandersnatch")
 
+define w = Character("Allison the Cashier Witch")
+
 
 # The game starts here.
 
@@ -14,13 +16,13 @@ label start:
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
 
-    scene bg room
+    scene bg enter
 
     # This shows a character sprite. A placeholder is used, but you can
     # replace it by adding a file named "eileen happy.png" to the images
     # directory.
 
-    show eileen happy
+    show jon bander
 
     # These display lines of dialogue.
 
@@ -29,5 +31,15 @@ label start:
     j "Let's see what this store has in store for me tonight."
 
     # This ends the game.
+
+    scene bg cashier
+    with Dissolve(0.5)
+
+    pause 0.5
+
+    show allison witch
+    with Dissolve(0.5)
+
+    w "Hehehe, hello my pretty! It is good to see you after all this time. Why have you come to my store?"
 
     return
