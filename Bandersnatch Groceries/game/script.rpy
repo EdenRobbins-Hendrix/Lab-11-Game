@@ -7,6 +7,15 @@ define j = Character("John Bandersnatch")
 
 define w = Character("Allison the Cashier Witch")
 
+init python:
+    class GroceryItem:
+        def __init__(self, name, cost, image):
+            self.name = name
+            self.cost = float(cost)
+            self.image = image
+
+default cow_milk = GroceryItem("Cow Milk", 3.50, "Cow Milk")
+default corn_cob = GroceryItem("Corn on the cob", 4.50, "Corn")
 
 define milk_item = ["cow_milk"]
 define side_item = ["corn_cob", "corn_hairless", "salmon", "corn_hairless"]
