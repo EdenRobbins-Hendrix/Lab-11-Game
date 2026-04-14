@@ -8,6 +8,17 @@ define j = Character("John Bandersnatch")
 define w = Character("Allison the Cashier Witch")
 
 
+define milk_item = [cow_milk]
+define side_item = [corn_cob, corn_hairless, salmon]
+define clothing_item = [shoes, shirt]
+
+define long_yellow = [thread, banana, corn_hair]
+define coarse_thin = [corn_hair, thread]
+define fishy = [soy_fix, salmon]
+
+define john_wants = [milk_item, side_item, clothing_item]
+define witch_wants = [long_yellow, coarse_thin, fishy]
+
 # The game starts here.
 
 label start:
