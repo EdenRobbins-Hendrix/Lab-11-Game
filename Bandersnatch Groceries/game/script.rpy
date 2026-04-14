@@ -9,7 +9,7 @@ define w = Character("Allison the Cashier Witch")
 
 
 define milk_item = [cow_milk]
-define side_item = [corn_cob, corn_hairless, salmon]
+define side_item = [corn_cob, corn_hairless, salmon, corn_hairless]
 define clothing_item = [shoes, shirt]
 
 define long_yellow = [thread, banana, corn_hair]
