@@ -28,6 +28,8 @@ define fishy = ["soy_fish", "salmon"]
 define john_wants = ["milk_item", "side_item", "clothing_item"]
 define witch_wants = ["long_yellow", "coarse_thin", "fishy"]
 
+default visited_aisles = set()
+
 # The game starts here.
 
 label start:
@@ -62,4 +64,31 @@ label start:
 
     w "Hehehe, hello my pretty! It is good to see you after all this time. Why have you come to my store?"
 
+    menu aisle_menu
+
     return
+
+label aisle_menu:
+
+    set visited_aisles
+    "Which aisle should I go to?"
+
+    "Go to dairy aisle":
+        jump dairy_aisle
+
+    "Go to produce aisle":
+        jump produce_aisle
+
+    "Go to canned vegetables aisle":
+        jump vegetables aisle
+
+    "Go to arts and crafts aisle":
+        jump arts_aisle
+
+    "Go to clothing aisle":
+        jump clothing_aisle
+
+label dairy_aisle:
+    scene bg dairy
+
+
