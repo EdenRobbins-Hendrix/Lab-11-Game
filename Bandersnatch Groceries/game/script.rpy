@@ -131,23 +131,23 @@ label aisle_menu:
 
         "Go to the dairy aisle.":
             $ last_visited = "dairy"
-            call dairy_aisle("bg dairy", soy_milk, cow_milk)
+            call shopping_aisle("bg dairy", soy_milk, cow_milk)
 
         "Go to the produce aisle.":
             $ last_visited = "produce"
-            call produce_aisle("bg produce", banana, corn_cob)
+            call shopping_aisle("bg produce", banana, corn_cob)
 
         "Go to the canned vegetables aisle.":
             $ last_visited = "canned vegetables"
-            call canned_aisle("bg canned", salmon, soy_fish)
+            call shopping_aisle("bg canned", salmon, soy_fish)
 
         "Go to the arts and crafts aisle.":
             $ last_visited = "arts and crafts"
-            call arts_aisle("bg arts", scissors, thread)
+            call shopping_aisle("bg arts", scissors, thread)
 
         "Go to the clothing aisle.":
             $ last_visited = "clothing"
-            call clothing_aisle("bg aisle2", shirt, shoes)
+            call shopping_aisle("bg aisle2", shirt, shoes)
 
         "Leave the store." if len(visited_aisles) > 0:
             $ leave = True
