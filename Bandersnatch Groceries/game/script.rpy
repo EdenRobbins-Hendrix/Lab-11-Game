@@ -82,6 +82,12 @@ label start:
 
     # These display lines of dialogue.
 
+    j "Ugh, I can't believe I have to go to the grocery store. I hate grocery shopping."
+
+    j "But I guess I have to go in if I want to get the items I need for my project."
+
+    j "I need to get some milk, something for a side dish, and something to wear. I hope I can find everything I need."
+
     j "So, this is the grocery store that my family told me never to enter...I guess it's only a few items though."
 
     j "Let's see what this store has in store for me tonight."
@@ -98,7 +104,7 @@ label start:
 
     j "I'm looking for some items of mine. I'm in a pinch, so I want to leave quickly."
 
-    w "Not so fast! I want some items too! They are ..."
+    w "Not so fast! I want some items too! I want some long yellow items, some coarse thin items, and some fishy items. If you can get those for me, I'll let you leave."
 
     j "Fine, but I'm only entering each aisle once, so if I can't find the item the first time I go through, I'm not going back."
 
