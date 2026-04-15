@@ -9,6 +9,8 @@ define w = Character("Allison the Cashier Witch")
 
 define e = Character("Janitor")
 
+# Code for running a timer
+
 init python:
     class GroceryItem:
         def __init__(self, name, cost, image, classification):
@@ -117,6 +119,7 @@ label start:
     return
 
 label aisle_menu:
+
     python:
         if last_visited == "":
             john_script = "I guess I should start shopping. Where should I head to first?"
@@ -166,6 +169,7 @@ label completed:
     return
 
 label shopping_aisle(bg, item1, item2):
+    # Start janitor timer if len(visited_aisles) > 2
     scene expression bg
     with Dissolve(0.5)
 
@@ -184,6 +188,8 @@ label shopping_aisle(bg, item1, item2):
     elif len(visited_aisles) == 2:
         e "I warned you..."
     
+    # Reset janitor timer
+
     jump aisle_menu
 
 
