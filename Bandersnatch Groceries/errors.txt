@@ -2,45 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 170: end of line expected.
-    show item.image
-             ^
-
-File "game/script.rpy", line 172: end of line expected.
-    hide item.image
-             ^
-
-File "game/script.rpy", line 189: end of line expected.
-    show item.image
-             ^
-
-File "game/script.rpy", line 191: end of line expected.
-    hide item.image
-             ^
-
-File "game/script.rpy", line 207: end of line expected.
-    show item.image
-             ^
-
-File "game/script.rpy", line 209: end of line expected.
-    hide item.image
-             ^
-
-File "game/script.rpy", line 225: end of line expected.
-    show item.image
-             ^
-
-File "game/script.rpy", line 227: end of line expected.
-    hide item.image
-             ^
-
-File "game/script.rpy", line 243: end of line expected.
-    show item.image
-             ^
-
-File "game/script.rpy", line 245: end of line expected.
-    hide item.image
-             ^
+File "game/script.rpy", line 234: expected ':'
+    else
+                 ^
 
 Ren'Py Version: Ren'Py 8.5.2.26010301
-Tue Apr 14 20:45:50 2026
+Wed Apr 15 08:50:52 2026
