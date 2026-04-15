@@ -30,6 +30,7 @@ define witch_wants = ["long_yellow", "coarse_thin", "fishy"]
 
 default inventory = []
 default last_visited = ""
+default john_script = ""
 
 default leave = False
 
@@ -83,7 +84,6 @@ label start:
 
 label aisle_menu:
     python:
-        john_script = ""
         if last_visited == "":
             john_script = "I guess I should start shopping. Where should I head to first?"
         else:
