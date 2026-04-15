@@ -12,7 +12,7 @@ init python:
         def __init__(self, name, cost, image, classification):
             self.name = name
             self.cost = float(cost)
-            self.image = image
+            self.image = "VN icons/" + image + ".png"
             self.classification = classification
 
 # Dairy 
@@ -40,9 +40,9 @@ default shoes = GroceryItem("Golden glittery shoes", 25.00, "Shoes", ["clothing_
 default thread = GroceryItem("Golden thread", 15.00, "Thread", ["coarse_thin", "long_yellow"])
 default scissors = GroceryItem("Scissors", 5.00, "Scissors", ["needed_for_long_yellow"])
 
-# define milk_item = ["cow_milk"]
-# define side_item = ["corn_cob", "corn_hairless", "salmon"]
-# define clothing_item = ["shoes", "shirt"]
+# define milk_$ item = ["cow_milk"]
+# define side_$ item = ["corn_cob", "corn_hairless", "salmon"]
+# define clothing_$ item = ["shoes", "shirt"]
 
 # define long_yellow = ["thread", "banana", "corn_hair"]
 # define coarse_thin = ["corn_hair", "thread"]
@@ -161,15 +161,15 @@ label dairy_aisle:
     menu:
         "What should I get?"
         "Get soy milk.":
-            item = soy_milk
+            $ item = soy_milk
             $ inventory.append(soy_milk)
             
         "Get cow milk.":
-            item = cow_milk
+            $ item = cow_milk
             $ inventory.append(cow_milk)
-    show item.image
+    show expression item.image as shopping_item
     j "Guess I'm done shopping"
-    hide item.image
+    hide shopping_item
     jump aisle_menu
     
 
@@ -181,14 +181,14 @@ label produce_aisle:
         "What should I get?"
 
         "Get banana.":
-            item = banana
+            $ item = banana
             $ inventory.append(banana)
         "Get corn on the cob.":
-            item = corn_cob
+            $ item = corn_cob
             $ inventory.append(corn_cob)
-    show item.image
+    show expression item.image as shopping_item
     j "Guess I'm done shopping"
-    hide item.image
+    hide shopping_item
     jump aisle_menu
 
 label canned_aisle:
@@ -199,14 +199,14 @@ label canned_aisle:
         "What should I get?"
 
         "Get cape-brand salmon.":
-            item = salmon
+            $ item = salmon
             $ inventory.append(salmon)
         "Get soy-based faux-fish.":
-            item = soy_fish
+            $ item = soy_fish
             $ inventory.append(soy_fish)
-    show item.image
+    show expression item.image as shopping_item
     j "Guess I'm done shopping"
-    hide item.image
+    hide shopping_item
     jump aisle_menu
 
 label arts_aisle:
@@ -217,14 +217,14 @@ label arts_aisle:
         "What should I get?"
 
         "Get scissors.":
-            item = scissors
+            $ item = scissors
             $ inventory.append(scissors)
         "Get golden thread.":
-            item = thread
+            $ item = thread
             $ inventory.append(thread)
-    show item.image
+    show expression item.image as shopping_item
     j "Guess I'm done shopping"
-    hide item.image
+    hide shopping_item
     jump aisle_menu
 
 label clothing_aisle:
@@ -235,14 +235,14 @@ label clothing_aisle:
         "What should I get?"
 
         "Get yellow sequin shirt.":
-            item = shirt
+            $ item = shirt
             $ inventory.append(shirt)
         "Get golden glittery shoes.":
-            item = shoes
+            $ item = shoes
             $ inventory.append(shoes)
-    show item.image
+    show expression item.image as shopping_item
     j "Guess I'm done shopping"
-    hide item.image
+    hide shopping_item
     jump aisle_menu
 
 
