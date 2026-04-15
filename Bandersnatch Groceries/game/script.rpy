@@ -31,6 +31,8 @@ define witch_wants = ["long_yellow", "coarse_thin", "fishy"]
 default inventory = []
 default last_visited = ""
 
+default leave = False
+
 default visited_aisles = set()
 
 # The game starts here.
@@ -55,8 +57,6 @@ label start:
 
     j "Let's see what this store has in store for me tonight."
 
-    # This ends the game.
-
     scene bg cashier
     with Dissolve(0.5)
 
@@ -73,46 +73,68 @@ label start:
 
     j "Fine, but I'm only entering each aisle once, so if I can't find the item the first time I go through, I'm not going back."
 
-    with Dissolve(0.5)
 
     jump aisle_menu
+    with Dissolve(0.5)
+
+    # This ends the game.
 
     return
 
 label aisle_menu:
-    scene bg aisle1
-    with Dissolve(0.5)
     python:
         john_script = ""
         if last_visited == "":
             john_script = "I guess I should start shopping. Where should I head to first?"
         else:
             john_script = f"I hope I got everything from the {last_visited} aisle. Now, where should I head to next?"
+        if len(visited_aisles) == 5:
+            leave = True
+    
+    if leave:
+        jump completed
+        with Dissolve(0.5)
+
+    scene bg aisle1
+    with Dissolve(0.5)
     menu:
         set visited_aisles
         j "[john_script]"
 
-        "Go to dairy aisle":
+        "Go to the dairy aisle.":
             $ last_visited = "dairy"
             jump dairy_aisle
 
-        "Go to produce aisle":
+        "Go to the produce aisle.":
             $ last_visited = "produce"
             jump produce_aisle
 
-        "Go to canned vegetables aisle":
+        "Go to the canned vegetables aisle.":
             $ last_visited = "canned vegetables"
-            jump vegetables_aisle
+            jump canned_aisle
 
-        "Go to arts and crafts aisle":
+        "Go to the arts and crafts aisle.":
             $ last_visited = "arts and crafts"
             jump arts_aisle
 
-        "Go to clothing aisle":
+        "Go to the clothing aisle.":
             $ last_visited = "clothing"
             jump clothing_aisle
 
+        "Leave the store." if len(visited_aisles) > 0:
+            $ leave = True
+            jump completed
+
+label completed:
+    scene bg cashier
+    j "I got your items. Now go!"
+
+    return
+
 label dairy_aisle:
+    scene bg dairy
+    with Dissolve(0.5)
+
     menu:
         "What should I get?"
 
@@ -127,18 +149,30 @@ label dairy_aisle:
     
 
 label produce_aisle:
+    scene bg produce
+    with Dissolve(0.5)
+
     j "Guess I'm done shopping"
     jump aisle_menu
 
-label vegetables_aisle:
+label canned_aisle:
+    scene bg canned
+    with Dissolve(0.5)
+
     j "Guess I'm done shopping"
     jump aisle_menu
 
 label arts_aisle:
+    scene bg arts
+    with Dissolve(0.5)
+
     j "Guess I'm done shopping"
     jump aisle_menu
 
 label clothing_aisle:
+    scene bg aisle2
+    with Dissolve(0.5)
+
     j "Guess I'm done shopping"
     jump aisle_menu
 

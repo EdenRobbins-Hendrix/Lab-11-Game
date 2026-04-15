@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 93: expected menuitem
-    j jon_script
+File "game/script.rpy", line 34: invalid syntax
+    = False
     ^
 
 Ren'Py Version: Ren'Py 8.5.2.26010301
-Tue Apr 14 19:36:29 2026
+Tue Apr 14 19:57:02 2026
