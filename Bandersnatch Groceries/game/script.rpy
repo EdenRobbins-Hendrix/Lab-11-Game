@@ -97,6 +97,15 @@ label aisle_menu:
             jump clothing_aisle
 
 label dairy_aisle:
+    menu:
+        "What should I get?"
+
+        "Get soy milk.":
+            inventory.append(soy_milk)
+
+        "Get cow milk.":
+            inventory.append(cow_milk)
+
     j "Guess I'm done shopping"
     jump aisle_menu
     
