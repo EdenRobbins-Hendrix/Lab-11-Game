@@ -197,9 +197,19 @@ label shopping_aisle(bg, item1, item2):
         e "Hey, you shouldn't be here!'"
     elif len(visited_aisles) == 2:
         e "I warned you..."
+        jump janitor_interaction
     
     # Reset janitor timer
 
     jump aisle_menu
 
+label janitor_interaction:
+    scene bg aisle1
+    with Dissolve(0.5)
 
+    show joe janitor
+    with Dissolve(0.5)
+
+    e "I see you've been here for a while. You should leave soon, or else..."
+
+    jump aisle_menu
