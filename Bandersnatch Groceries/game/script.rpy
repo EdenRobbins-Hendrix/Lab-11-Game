@@ -64,31 +64,55 @@ label start:
 
     w "Hehehe, hello my pretty! It is good to see you after all this time. Why have you come to my store?"
 
-    menu aisle_menu
+    j "I'm looking for some items of mine. I'm in a pinch, so I want to leave quickly."
+
+    w "Not so fast! I want some items too! They are ..."
+
+    j "Fine, but I'm only entering each aisle once, so if I can't find the item the first time I go through, I'm not going back."
+
+    jump aisle_menu
 
     return
 
 label aisle_menu:
+    menu:
+        set visited_aisles
+        j "Which aisle should I go to first?"
 
-    set visited_aisles
-    "Which aisle should I go to?"
+        "Go to dairy aisle":
+            jump dairy_aisle
 
-    "Go to dairy aisle":
-        jump dairy_aisle
+        "Go to produce aisle":
+            jump produce_aisle
 
-    "Go to produce aisle":
-        jump produce_aisle
+        "Go to canned vegetables aisle":
+            jump vegetables_aisle
 
-    "Go to canned vegetables aisle":
-        jump vegetables aisle
+        "Go to arts and crafts aisle":
+            jump arts_aisle
 
-    "Go to arts and crafts aisle":
-        jump arts_aisle
-
-    "Go to clothing aisle":
-        jump clothing_aisle
+        "Go to clothing aisle":
+            jump clothing_aisle
 
 label dairy_aisle:
-    scene bg dairy
+    j "Guess I'm done shopping"
+    jump aisle_menu
+    
+
+label produce_aisle:
+    j "Guess I'm done shopping"
+    jump aisle_menu
+
+label vegetables_aisle:
+    j "Guess I'm done shopping"
+    jump aisle_menu
+
+label arts_aisle:
+    j "Guess I'm done shopping"
+    jump aisle_menu
+
+label clothing_aisle:
+    j "Guess I'm done shopping"
+    jump aisle_menu
 
 
