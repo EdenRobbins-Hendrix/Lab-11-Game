@@ -171,7 +171,7 @@ label shopping_aisle(bg, item1, item2):
             $ item = item2
     $ inventory.append(item)
     show expression item.image as shopping_item
-    j "Guess I'm done shopping"
+    j "Guess I'm done shopping."
     hide shopping_item
     if len(visited_aisles) == 1:
         e "Hey, you shouldn't be here!'"
