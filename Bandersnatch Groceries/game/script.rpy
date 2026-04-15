@@ -28,6 +28,8 @@ define fishy = ["soy_fish", "salmon"]
 define john_wants = ["milk_item", "side_item", "clothing_item"]
 define witch_wants = ["long_yellow", "coarse_thin", "fishy"]
 
+define inventory = []
+
 default visited_aisles = set()
 
 # The game starts here.
