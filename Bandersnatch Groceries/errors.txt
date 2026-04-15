@@ -2,21 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 102: expected ':' not found.
-    label produce_aisle
-                       ^
-
-File "game/script.rpy", line 106: expected ':' not found.
-    label vegetables_aisle
-                          ^
-
-File "game/script.rpy", line 110: expected ':' not found.
-    label arts_aisle
-                    ^
-
-File "game/script.rpy", line 114: expected ':' not found.
-    label clothing_aisle
-                        ^
+File "game/script.rpy", line 93: expected menuitem
+    j jon_script
+    ^
 
 Ren'Py Version: Ren'Py 8.5.2.26010301
-Tue Apr 14 19:14:27 2026
+Tue Apr 14 19:36:29 2026

@@ -28,7 +28,8 @@ define fishy = ["soy_fish", "salmon"]
 define john_wants = ["milk_item", "side_item", "clothing_item"]
 define witch_wants = ["long_yellow", "coarse_thin", "fishy"]
 
-define inventory = []
+default inventory = []
+default last_visited = ""
 
 default visited_aisles = set()
 
@@ -72,28 +73,43 @@ label start:
 
     j "Fine, but I'm only entering each aisle once, so if I can't find the item the first time I go through, I'm not going back."
 
+    with Dissolve(0.5)
+
     jump aisle_menu
 
     return
 
 label aisle_menu:
+    scene bg aisle1
+    with Dissolve(0.5)
+    python:
+        john_script = ""
+        if last_visited == "":
+            john_script = "I guess I should start shopping. Where should I head to first?"
+        else:
+            john_script = f"I hope I got everything from the {last_visited} aisle. Now, where should I head to next?"
     menu:
         set visited_aisles
-        j "Which aisle should I go to first?"
+        j "[john_script]"
 
         "Go to dairy aisle":
+            $ last_visited = "dairy"
             jump dairy_aisle
 
         "Go to produce aisle":
+            $ last_visited = "produce"
             jump produce_aisle
 
         "Go to canned vegetables aisle":
+            $ last_visited = "canned vegetables"
             jump vegetables_aisle
 
         "Go to arts and crafts aisle":
+            $ last_visited = "arts and crafts"
             jump arts_aisle
 
         "Go to clothing aisle":
+            $ last_visited = "clothing"
             jump clothing_aisle
 
 label dairy_aisle:
@@ -101,10 +117,10 @@ label dairy_aisle:
         "What should I get?"
 
         "Get soy milk.":
-            inventory.append(soy_milk)
+            $ inventory.append(soy_milk)
 
         "Get cow milk.":
-            inventory.append(cow_milk)
+            $ inventory.append(cow_milk)
 
     j "Guess I'm done shopping"
     jump aisle_menu
