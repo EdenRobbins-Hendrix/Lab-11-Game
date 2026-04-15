@@ -131,23 +131,23 @@ label aisle_menu:
 
         "Go to the dairy aisle.":
             $ last_visited = "dairy"
-            jump dairy_aisle
+            call dairy_aisle("bg dairy", soy_milk, cow_milk)
 
         "Go to the produce aisle.":
             $ last_visited = "produce"
-            jump produce_aisle
+            call produce_aisle("bg produce", banana, corn_cob)
 
         "Go to the canned vegetables aisle.":
             $ last_visited = "canned vegetables"
-            jump canned_aisle
+            call canned_aisle("bg canned", salmon, soy_fish)
 
         "Go to the arts and crafts aisle.":
             $ last_visited = "arts and crafts"
-            jump arts_aisle
+            call arts_aisle("bg arts", scissors, thread)
 
         "Go to the clothing aisle.":
             $ last_visited = "clothing"
-            jump clothing_aisle
+            call clothing_aisle("bg aisle2", shirt, shoes)
 
         "Leave the store." if len(visited_aisles) > 0:
             $ leave = True
@@ -159,17 +159,16 @@ label completed:
 
     return
 
-label dairy_aisle:
-    scene bg dairy
+label shopping_aisle(bg, item1, item2):
+    scene expression bg
     with Dissolve(0.5)
 
     menu:
         "What should I get?"
-        "Get [soy_milk.display_item()].":
-            $ item = soy_milk
-            
-        "Get [cow_milk.display_item()].":
-            $ item = cow_milk
+        "Get [item1.display_item()].":
+            $ item = item1
+        "Get [item2.display_item()].":
+            $ item = item2
     $ inventory.append(item)
     show expression item.image as shopping_item
     j "Guess I'm done shopping"
@@ -178,91 +177,7 @@ label dairy_aisle:
         e "Hey, you shouldn't be here!'"
     elif len(visited_aisles) == 2:
         e "I warned you..."
-    jump aisle_menu
     
-
-label produce_aisle:
-    scene bg produce
-    with Dissolve(0.5)
-
-    menu:
-        "What should I get?"
-
-        "Get [banana.display_item()].":
-            $ item = banana
-        "Get [corn_cob.display_item()].":
-            $ item = corn_cob
-    $ inventory.append(item)
-    show expression item.image as shopping_item
-    j "Guess I'm done shopping"
-    hide shopping_item
-    if len(visited_aisles) == 1:
-        e "Hey, you shouldn't be here!'"
-    elif len(visited_aisles) == 2:
-        e "I warned you..."
-    jump aisle_menu
-
-label canned_aisle:
-    scene bg canned
-    with Dissolve(0.5)
-
-    menu:
-        "What should I get?"
-
-        "Get [salmon.display_item()].":
-            $ item = salmon
-        "Get [soy_fish.display_item()].":
-            $ item = soy_fish
-    $ inventory.append(soy_fish)
-    show expression item.image as shopping_item
-    j "Guess I'm done shopping"
-    hide shopping_item
-    if len(visited_aisles) == 1:
-        e "Hey, you shouldn't be here!'"
-    elif len(visited_aisles) == 2:
-        e "I warned you..."
-    jump aisle_menu
-
-label arts_aisle:
-    scene bg arts
-    with Dissolve(0.5)
-
-    menu:
-        "What should I get?"
-
-        "Get [scissors.display_item()].":
-            $ item = scissors
-        "Get [thread.display_item()].":
-            $ item = thread
-    $ inventory.append(thread)
-    show expression item.image as shopping_item
-    j "Guess I'm done shopping"
-    hide shopping_item
-    if len(visited_aisles) == 1:
-        e "Hey, you shouldn't be here!'"
-    elif len(visited_aisles) == 2:
-        e "I warned you..."
-    jump aisle_menu
-
-label clothing_aisle:
-    scene bg aisle2
-    with Dissolve(0.5)
-
-    menu:
-        "What should I get?"
-
-        "Get [shirt.display_item()].":
-            $ item = shirt
-        "Get [shoes.display_item()].":
-            $ item = shoes
-    $ inventory.append(shoes)
-    show expression item.image as shopping_item
-    j "Guess I'm done shopping"
-    hide shopping_item
-    if len(visited_aisles) == 1:
-        e "Hey, you shouldn't be here!'"
-    elif len(visited_aisles) == 2:
-        e "I warned you..."
     jump aisle_menu
 
 
