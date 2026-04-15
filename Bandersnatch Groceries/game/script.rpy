@@ -7,6 +7,8 @@ define j = Character("John Bandersnatch")
 
 define w = Character("Allison the Cashier Witch")
 
+define e = Character("Janitor")
+
 init python:
     class GroceryItem:
         def __init__(self, name, cost, image, classification):
@@ -170,6 +172,10 @@ label dairy_aisle:
     show item.image
     j "Guess I'm done shopping"
     hide item.image
+    if len(visited_aisles) == 1:
+        e "Hey, you shouldn't be here!'"
+    elif len(visited_aisles) == 2:
+        e "I warned you..."
     jump aisle_menu
     
 
@@ -189,6 +195,10 @@ label produce_aisle:
     show item.image
     j "Guess I'm done shopping"
     hide item.image
+    if len(visited_aisles) == 1:
+        e "Hey, you shouldn't be here!'"
+    elif len(visited_aisles) == 2:
+        e "I warned you..."
     jump aisle_menu
 
 label canned_aisle:
@@ -207,6 +217,10 @@ label canned_aisle:
     show item.image
     j "Guess I'm done shopping"
     hide item.image
+    if len(visited_aisles) == 1:
+        e "Hey, you shouldn't be here!'"
+    elif len(visited_aisles) == 2:
+        e "I warned you..."
     jump aisle_menu
 
 label arts_aisle:
@@ -225,6 +239,10 @@ label arts_aisle:
     show item.image
     j "Guess I'm done shopping"
     hide item.image
+    if len(visited_aisles) == 1:
+        e "Hey, you shouldn't be here!'"
+    elif len(visited_aisles) == 2:
+        e "I warned you..."
     jump aisle_menu
 
 label clothing_aisle:
@@ -243,6 +261,10 @@ label clothing_aisle:
     show item.image
     j "Guess I'm done shopping"
     hide item.image
+    if len(visited_aisles) == 1:
+        e "Hey, you shouldn't be here!'"
+    elif len(visited_aisles) == 2:
+        e "I warned you..."
     jump aisle_menu
 
 
