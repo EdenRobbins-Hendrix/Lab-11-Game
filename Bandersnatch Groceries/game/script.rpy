@@ -152,12 +152,27 @@ label produce_aisle:
     scene bg produce
     with Dissolve(0.5)
 
+    menu:
+        "What should I get?"
+
+        "Get banana.":
+            $ inventory.append(banana)
+        "Get corn on the cob.":
+            $ inventory.append(corn_cob)
     j "Guess I'm done shopping"
     jump aisle_menu
 
 label canned_aisle:
     scene bg canned
     with Dissolve(0.5)
+
+    menu:
+        "What should I get?"
+
+        "Get cape-brand salmon.":
+            $ inventory.append(salmon)
+        "Get soy-based faux-fish.":
+            $ inventory.append(soy_fish)
 
     j "Guess I'm done shopping"
     jump aisle_menu
@@ -166,12 +181,27 @@ label arts_aisle:
     scene bg arts
     with Dissolve(0.5)
 
+    menu:
+        "What should I get?"
+
+        "Get scissors.":
+            $ inventory.append(scissors)
+        "Get golden thread.":
+            $ inventory.append(thread)
     j "Guess I'm done shopping"
     jump aisle_menu
 
 label clothing_aisle:
     scene bg aisle2
     with Dissolve(0.5)
+
+    menu:
+        "What should I get?"
+
+        "Get yellow sequin shirt.":
+            $ inventory.append(shirt)
+        "Get golden glittery shoes.":
+            $ inventory.append(shoes)
 
     j "Guess I'm done shopping"
     jump aisle_menu
