@@ -9,21 +9,44 @@ define w = Character("Allison the Cashier Witch")
 
 init python:
     class GroceryItem:
-        def __init__(self, name, cost, image):
+        def __init__(self, name, cost, image, classification):
             self.name = name
             self.cost = float(cost)
             self.image = image
+            self.classification = classification
 
-default cow_milk = GroceryItem("Cow Milk", 3.50, "Cow Milk")
-default corn_cob = GroceryItem("Corn on the cob", 4.50, "Corn")
+# Dairy 
+default cow_milk = GroceryItem("Cow Milk", 3.50, "Cow Milk", ["milk_item"])
+default soy_milk = GroceryItem("Soy Milk", 4.00, "Soy Milk", ["milk_item"])
 
-define milk_item = ["cow_milk"]
-define side_item = ["corn_cob", "corn_hairless", "salmon", "corn_hairless"]
-define clothing_item = ["shoes", "shirt"]
+# Produce
+default corn_cob = GroceryItem("Corn on the cob", 4.50, "Corn", ["side_item"])
+default corn_hair = GroceryItem("Corn hair", 0, "Corn Hair", ["coarse_thin", "long_yellow"])
+default banana = GroceryItem("Banana", 1.00, "Banana", ["long_yellow"])
 
-define long_yellow = ["thread", "banana", "corn_hair"]
-define coarse_thin = ["corn_hair", "thread"]
-define fishy = ["soy_fish", "salmon"]
+# Only achievable if John has the corn cob and scissors
+default corn_hairless = GroceryItem("Corn on the cob (hairless)", 5.50, "Corn Hairless", ["side_item"])
+
+# In the "canned" aisle, but is a standin for when 
+# I can take a new picture for the fish aisle
+default salmon = GroceryItem("Cape-brand Salmon", 10.00, "Salmon", ["fishy", "side_item"])
+default soy_fish = GroceryItem("Soy-based faux-fish", 8.00, "Soy Fish", ["fishy"])
+
+# Clothing aisle (don't have a picture for this either)
+default shirt = GroceryItem("Yellow sequin shirt", 20.00, "Shirt", ["clothing_item"])
+default shoes = GroceryItem("Golden glittery shoes", 25.00, "Shoes", ["clothing_item"])
+
+# Arts and crafts aisle
+default thread = GroceryItem("Golden thread", 15.00, "Thread", ["coarse_thin", "long_yellow"])
+default scissors = GroceryItem("Scissors", 5.00, "Scissors", ["needed_for_long_yellow"])
+
+# define milk_item = ["cow_milk"]
+# define side_item = ["corn_cob", "corn_hairless", "salmon"]
+# define clothing_item = ["shoes", "shirt"]
+
+# define long_yellow = ["thread", "banana", "corn_hair"]
+# define coarse_thin = ["corn_hair", "thread"]
+# define fishy = ["soy_fish", "salmon"]
 
 define john_wants = ["milk_item", "side_item", "clothing_item"]
 define witch_wants = ["long_yellow", "coarse_thin", "fishy"]
