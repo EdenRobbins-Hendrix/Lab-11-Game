@@ -82,6 +82,8 @@ label start:
 
     show jon bander
 
+    play music "audio/Theme.mp3"
+
     # These display lines of dialogue.
 
     j "Ugh, I can't believe I have to go to the grocery store. I hate grocery shopping."
@@ -97,7 +99,12 @@ label start:
     scene bg cashier
     with Dissolve(0.5)
 
-    pause 0.5
+    jump witch_interaction
+
+label witch_interaction:
+    pause 1
+
+    play music "audio/Witch.mp3"
 
     show allison witch
     with Dissolve(0.5)
@@ -110,6 +117,9 @@ label start:
 
     j "Fine, but I'm only entering each aisle once, so if I can't find the item the first time I go through, I'm not going back."
 
+    stop music 
+
+    play music "audio/Theme.mp3"
 
     jump aisle_menu
     with Dissolve(0.5)
@@ -174,7 +184,7 @@ label shopping_aisle(bg, item1, item2):
     with Dissolve(0.5)
 
     menu:
-        "What should I get?"
+        j "What should I get?"
         "Get [item1.display_item()].":
             $ item = item1
         "Get [item2.display_item()].":
